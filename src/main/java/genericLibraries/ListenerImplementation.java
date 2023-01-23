@@ -19,6 +19,7 @@ public class ListenerImplementation implements ITestListener {
 
 	ExtentReports report;
 	ExtentTest test;
+	RemoteWebDriver rdriver;
 
 	/**
 	 * execution start from here
@@ -60,6 +61,7 @@ public class ListenerImplementation implements ITestListener {
 	 * Configure the extent report
 	 */
 	public void onStart(ITestContext context) {
+		rdriver = (RemoteWebDriver)BaseClass.driver;
 		ExtentSparkReporter htmlReporter = new ExtentSparkReporter("./ExtentReports/report.html");
 		htmlReporter.config().setDocumentTitle("SDET-45 extent report");
 		htmlReporter.config().setTheme(Theme.DARK);
@@ -78,11 +80,13 @@ public class ListenerImplementation implements ITestListener {
 	 * Consolidate the report
 	 */
 	public void onFinish(ITestContext context) {
-		RemoteWebDriver rdriver = (RemoteWebDriver) BaseClass.driver;
-		Capabilities capa = rdriver.getCapabilities();
-		report.setSystemInfo("Base Browser", capa.getBrowserName()+capa.getVersion());
-		report.setSystemInfo("OS",System.getProperty("os.version"));
-
+		 
+		/*
+		 * Capabilities capa = rdriver.getCapabilities();
+		 * report.setSystemInfo("Base Browser",
+		 * capa.getBrowserName()+capa.getVersion());
+		 * report.setSystemInfo("OS",System.getProperty("os.version"));
+		 */
 		report.flush();
 	}
 

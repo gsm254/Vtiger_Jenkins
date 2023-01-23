@@ -7,12 +7,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class BrowserLaunch {
 	
 	public static WebDriver chrome() {
-		System.setProperty("webdriver.chrome.driver", "./softwares/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/softwares/chromedriver.exe");
 		
 		return new ChromeDriver();
 	}
 	public static WebDriver firefox() {
-		System.setProperty("webdriver.gecko.driver", "./softwares/geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "./src/test/resources/softwares/geckodriver.exe");
 		
 		return new FirefoxDriver();
 	}

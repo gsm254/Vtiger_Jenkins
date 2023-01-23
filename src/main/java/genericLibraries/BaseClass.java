@@ -5,10 +5,16 @@ import java.sql.SQLException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import objectRepo.HomePage;
 import objectRepo.LoginPage;
+
 
 public class BaseClass {
 
